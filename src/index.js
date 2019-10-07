@@ -2,6 +2,8 @@ var player = 1;
 var the_cell;
 var string;
 var cell_location;
+var reset;
+var timer = 0;
 
 function table_cell(y, x) {
   cell_location = String("cell" + y + x);
@@ -170,12 +172,25 @@ function cell_click(id) {
     document.getElementById(the_cell).innerHTML = "x";
     document.getElementById(the_cell).style.backgroundColor = "#7CFC00";
     player = 2;
-    document.getElementById("bar").style.width = "50%";
+    timer = 0;
   } else {
     document.getElementById(the_cell).innerHTML = "o";
     document.getElementById(the_cell).style.backgroundColor = "#FA8072";
     player = 1;
+    timer = 0;
   }
   win_check();
 }
+
+setInterval(function funky_timer() {
+  timer++;
+  document.getElementById("progressi").innerHTML = timer;
+  if (timer === 10 && player === 1) {
+    player = 2;
+    timer = 0;
+  } else if (timer === 10 && player === 2) {
+    player = 1;
+    timer = 0;
+  }
+}, 1000);
 window.cell_click = cell_click;
