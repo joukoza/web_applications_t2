@@ -170,6 +170,7 @@ function cell_click(id) {
     document.getElementById(the_cell).innerHTML = "x";
     document.getElementById(the_cell).style.backgroundColor = "#7CFC00";
     player = 2;
+    document.getElementById("bar").style.width = "50%";
   } else {
     document.getElementById(the_cell).innerHTML = "o";
     document.getElementById(the_cell).style.backgroundColor = "#FA8072";
